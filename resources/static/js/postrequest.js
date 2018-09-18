@@ -1,8 +1,7 @@
 $( document ).ready(function() {
 	
-	// SUBMIT FORM
-    $("#userForm").submit(function(event) {
-		// Prevent the form from submitting via the browser.
+    $("#user-form").submit(function(event) {
+		// prevent the form from submitting via the browser.
 		event.preventDefault();
 		ajaxPost();
 	});
@@ -10,13 +9,13 @@ $( document ).ready(function() {
     
     function ajaxPost(){
     	
-    	// PREPARE FORM DATA
+    	// prepare form data
     	var formData = {
     		firstname : $("#firstname").val(),
     		lastname :  $("#lastname").val()
     	}
     	
-    	// DO POST
+    	// post request
     	$.ajax({
 			type : "POST",
 			contentType : "application/json",
@@ -24,17 +23,14 @@ $( document ).ready(function() {
 			data : JSON.stringify(formData),
 			dataType : 'json',
 			success : function(user) {
-				$("#postResultDiv").html("<p>" + 
-					"Post Successfully! <br>" +
-					"--> " + user.firstname + " " + user.lastname + "</p>");
+				$("#post-names").html(`Well Done! Bro ${user.firstname} ${user.lastname}!`);
 			},
 			error : function(e) {
-				alert("Error!")
-				console.log("ERROR: ", e);
+				alert(`Error!`)
+				console.log(`ERROR: ${e}`);
 			}
 		});
     	
-    	// Reset FormData after Posting
     	resetData();
  
     }

@@ -1,44 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <title>NodeJS-Express-MongoDB-drill</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/static/js/getrequest.js"></script>
-  <script src="/static/js/postrequest.js"></script>
+    <title>NodeJS-Express-MongoDB-drill</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
- 
-<body> 
-<div class="container"> 
-<div class="col-sm-4">
-	<h3>NodeJS/Express Post/Get Ajax</h3>
-	<div>		
-		<form id="userForm">
-		  <div class="form-group">
-			<label for="firstname">FirstName:</label>
-			<input type="text" class="form-control" id="firstname" placeholder="Enter FirstName"/>
-		  </div>
-		  <div class="form-group">
-			<label for="lastname">LastName:</label>
-			<input type="text" class="form-control" id="lastname" placeholder="Enter LastName"/>
-		  </div>
-		  <button type="submit" class="btn btn-default">Submit</button>
-		</form>
-	</div>
-	<div id="postResultDiv">
-	</div>
-	<br>
-	<div>
-		<button id="allUsers" type="button" class="btn btn-default">Users</button>
-		<div id="getResultDiv">
-	        <ul class="list-group">
-	    	</ul>
-    	</div>
-	</div>
-</div>	
-</div>
+
+<body>
+    <div class="root">
+
+        <img src="img/logo.png" alt="logo mango">
+
+        <div class="container">
+
+            <div class="card card-1">
+                <form id="userForm">
+                    <div class="form-group">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" class="form-control" id="firstname" placeholder="MANGO" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" class="form-control" id="lastname" placeholder="TARO" />
+                    </div>
+                    <input type="submit" class="btn btn-default input" value="ready to go">
+                    <input id="allUsers" type="button" class="btn btn-default input" value="all members">
+                </form>
+            </div>
+
+            <div class="card card-2">
+                <h1>new member</h1>
+                <h2 id="postNames"></h2>
+            </div>
+
+            <br>
+
+            <div class="card card-3">
+                <h1>all members</h1>
+                <div id="getNames">
+                    <ul class="nameList">
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/js/getrequest.js"></script>
+    <script src="/static/js/postrequest.js"></script>
 </body>
+
 </html>
