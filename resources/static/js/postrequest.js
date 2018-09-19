@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 	
-    $("#user-form").submit(function(event) {
+    $("#userForm").submit(function(event) {
 		// prevent the form from submitting via the browser.
 		event.preventDefault();
 		ajaxPost();
@@ -23,7 +23,7 @@ $( document ).ready(function() {
 			data : JSON.stringify(formData),
 			dataType : 'json',
 			success : function(user) {
-				$("#post-names").html(`Well Done! Bro ${user.firstname} ${user.lastname}!`);
+				$("#postNames").html(`Well Done! Bro ${user.firstname} ${user.lastname}!`);
 			},
 			error : function(e) {
 				alert(`Error!`)

@@ -13,7 +13,7 @@ $( document ).ready(function() {
 			success: function(result){
 				$('#getNames ul').empty();
 				$.each(result, function(i, user){
-					$('#getNames .nameList').append(`${user.firstname} ${user.lastname} <br>`)
+					$('#getNames .nameList').append(`<p>${user.firstname} ${user.lastname}</p>`)
 				});
 				console.log(`Success: ${result}`);
 			},
