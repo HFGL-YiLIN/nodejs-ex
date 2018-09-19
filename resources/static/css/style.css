@@ -141,11 +141,11 @@ label {
 }
 
 .card-1 {
-    background-image: url('/static/img/retro-1.jpg');
+    background-image: url(/static/img/retro-1.jpg);
 }
 
 .card-2 {
-    background-image: url('/static/img/retro-2.jpg');
+    background-image: url(../img/retro-2.jpg);
 }
 
 .card-3 {
