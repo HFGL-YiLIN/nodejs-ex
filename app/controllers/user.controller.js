@@ -1,34 +1,36 @@
-const User = require('../models/user.model.js');
+const userData = require('../models/user.model.js');
  
-// Save FormData - User to MongoDB
+// save formdata to mongodb
 exports.save = (req, res) => {
-	console.log('Post a User: ' + JSON.stringify(req.body));
+	console.log(`Post a user: ${JSON.stringify(req.body)}`);
 	
-    // Create a Customer
-    const user = new User({
+    // create a customer
+    const user = new userData({
         firstname: req.body.firstname,
 		lastname: req.body.lastname
     });
  
-    // Save a Customer in the MongoDB
+    // save a customer in the mongodb
     user.save()
     .then(data => {
         res.send(data);
-    }).catch(err => {
+    })
+    .catch(err => {
         res.status(500).send({
             message: err.message
         });
     });
 };
  
-// Fetch all Users
+// fetch all users
 exports.findAll = (req, res) =>  {
-	console.log("Fetch all Users");
+	console.log(`Fetch all users`);
 	
-    User.find()
-    .then(users => {
-        res.send(users);
-    }).catch(err => {
+    userData.find()
+    .then(data => {
+        res.send(data);
+    })
+    .catch(err => {
         res.status(500).send({
             message: err.message
         });

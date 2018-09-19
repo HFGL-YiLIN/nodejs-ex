@@ -1,16 +1,16 @@
-$( document ).ready(function() {
+$( document ).ready(() => {
 	
-    $("#userForm").submit(function(event) {
+    $("#userForm").submit(event => {
 		// prevent the form from submitting via the browser.
 		event.preventDefault();
 		ajaxPost();
 	});
     
     
-    function ajaxPost(){
+    const ajaxPost = () => {
     	
     	// prepare form data
-    	var formData = {
+    	const formData = {
     		firstname : $("#firstname").val(),
     		lastname :  $("#lastname").val()
     	}
@@ -22,12 +22,12 @@ $( document ).ready(function() {
 			url : window.location + "api/users/save",
 			data : JSON.stringify(formData),
 			dataType : 'json',
-			success : function(user) {
+			success : user => {
 				$("#postNames").html(`Well Done! Bro ${user.firstname} ${user.lastname}!`);
 			},
-			error : function(e) {
+			error : err => {
 				alert(`Error!`)
-				console.log(`ERROR: ${e}`);
+				console.log(`Error: ${err}`);
 			}
 		});
     	
@@ -35,7 +35,7 @@ $( document ).ready(function() {
  
     }
     
-    function resetData(){
+    const resetData = () => {
     	$("#firstname").val("");
     	$("#lastname").val("");
     }

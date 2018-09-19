@@ -1,25 +1,25 @@
-$( document ).ready(function() {
+$( document ).ready(() => {
 	
 	// get request
-	$("#allUsers").click(function(event){
+	$("#allUsers").click(event => {
 		event.preventDefault();
 		ajaxGet();
 	});
 
-	function ajaxGet(){
+	const ajaxGet = () => {
 		$.ajax({
 			type : "GET",
 			url : "/api/users/all",
-			success: function(result){
+			success: result => {
 				$('#getNames ul').empty();
-				$.each(result, function(i, user){
+				$.each(result, function(index, user){
 					$('#getNames .nameList').append(`<p>${user.firstname} ${user.lastname}</p>`)
 				});
 				console.log(`Success: ${result}`);
 			},
-			error : function(e) {
+			error : err => {
 				$("#getNames").html(`<strong>Error</strong>`);
-				console.log(`ERROR: ${e}`);
+				console.log(`Error: ${err}`);
 			}
 		});	
 	}

@@ -1,30 +1,33 @@
-module.exports = function(app) {
+const route = app => {
  
-	var express = require("express");
-	var router = express.Router();
+	const express = require("express");
+	const router = express.Router();
+	const path = __basedir;
+
+    const usersController = require(`${path}/app/controllers/user.controller.js`);
 	
-    const users = require('../controllers/user.controller.js');
 	
-	var path = __basedir + '/views/';
 	
-	router.use(function (req,res,next) {
-		console.log("/" + req.method);
+	router.use((req, res, next) => {
+		console.log(`/${req.method}`);
 		next();
 	});
 	
-	app.get('/', (req,res) => {
-		res.sendFile('index.html', {root: './views'});
+	app.get('/', (req, res) => {
+		res.sendFile(`${path}/views/index.html`);
 	});
  
-    // Save a User to MongoDB
-    app.post('/api/users/save', users.save);
+    // save a user to mongodb
+    app.post('/api/users/save', usersController.save);
  
-    // Retrieve all Users
-    app.get('/api/users/all', users.findAll);
+    // retrieve all users
+    app.get('/api/users/all', usersController.findAll);
 	
-	app.use("/",router);
+	app.use("/", router);
  
-	app.use("*", (req,res) => {
-		res.sendFile(path + "404.html");
+	app.use("*", (req, res) => {
+		res.sendFile(`${path}/views/404.html`);
 	});
-}
+}; 
+
+module.exports = route; 
