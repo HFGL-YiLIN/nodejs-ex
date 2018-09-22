@@ -1,4 +1,4 @@
-$( document ).ready(() => {
+$(document).ready(() => {
 	
 	// get request
 	$("#allUsers").click(event => {
@@ -12,7 +12,7 @@ $( document ).ready(() => {
 			url : "/api/users/all",
 			success: result => {
 				$('#getNames ul').empty();
-				$.each(result, function(index, user){
+				$.each(result, (index, user) => {
 					$('#getNames .nameList').append(`<p>${user.firstname} ${user.lastname}</p>`)
 				});
 				console.log(`Success: ${result}`);

@@ -1,4 +1,4 @@
-$( document ).ready(() => {
+$(document).ready(() => {
 	
     $("#userForm").submit(event => {
 		// prevent the form from submitting via the browser.
@@ -19,7 +19,7 @@ $( document ).ready(() => {
     	$.ajax({
 			type : "POST",
 			contentType : "application/json",
-			url : window.location + "api/users/save",
+			url : "/api/users/save",
 			data : JSON.stringify(formData),
 			dataType : 'json',
 			success : user => {
